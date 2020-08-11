@@ -5,11 +5,11 @@ import alanBtn from '@alan-ai/alan-sdk-web';
 import {NewsCards} from './components';
 import useStyles from './styles';
 const App = () => {
-  const apiKey = 'a52cafd26cc41da2c269cb900f4736892e956eca572e1d8b807a3e2338fdd0dc/stage';
+  
   const [activeArticle, setActiveArticle] = useState(0);
   const [newsArticles, setNewsArticles] = useState([]);
   const classes = useStyles();
-
+  const apiKey = 'a52cafd26cc41da2c269cb900f4736892e956eca572e1d8b807a3e2338fdd0dc/stage';
   useEffect(() => {
     alanBtn({
       key: apiKey,
@@ -18,7 +18,7 @@ const App = () => {
           setNewsArticles(articles);
           setActiveArticle(-1);
         } else if (command === 'instructions') {
-         // setIsOpen(true);
+         // setIsOpen(true) >> deleted
         } else if (command === 'highlight') {
           setActiveArticle((prevActiveArticle) => prevActiveArticle + 1);
         } else if (command === 'open') {
