@@ -5,7 +5,6 @@ import alanBtn from '@alan-ai/alan-sdk-web';
 import {NewsCards} from './components';
 import useStyles from './styles';
 const App = () => {
-  
   const [activeArticle, setActiveArticle] = useState(0);
   const [newsArticles, setNewsArticles] = useState([]);
   const classes = useStyles();
@@ -17,8 +16,6 @@ const App = () => {
         if (command === 'newHeadlines') {
           setNewsArticles(articles);
           setActiveArticle(-1);
-        } else if (command === 'instructions') {
-         // setIsOpen(true) >> deleted
         } else if (command === 'highlight') {
           setActiveArticle((prevActiveArticle) => prevActiveArticle + 1);
         } else if (command === 'open') {
