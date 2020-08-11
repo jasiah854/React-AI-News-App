@@ -21,7 +21,6 @@ const App = () => {
         } else if (command === 'open') {
           const parsedNumber = number.length > 2 ? wordsToNumbers((number), { fuzzy: true }) : number;
           const article = articles[parsedNumber - 1];
-
           if (parsedNumber > 20) {
             alanBtn().playText('Please try that again...');
           } else if (article) {
@@ -34,7 +33,6 @@ const App = () => {
       },
     });
   }, []);
-
   return (
     <div>
       <div className={classes.logoContainer}>
