@@ -5,7 +5,7 @@ import alanBtn from '@alan-ai/alan-sdk-web';
 import {NewsCards} from './components';
 import useStyles from './styles';
 require('dotenv').config();
-
+const apiKey = process.env.REACT_APP_API_KEY;
 
 const App = () => {
   const [activeArticle, setActiveArticle] = useState(0);
@@ -14,7 +14,7 @@ const App = () => {
 
   useEffect(() => {
     alanBtn({
-      key: process.env.REACT_APP_API_KEY,
+      key: apiKey,
       onCommand: ({ command, articles, number }) => {
         if (command === 'newHeadlines') {
           setNewsArticles(articles);
