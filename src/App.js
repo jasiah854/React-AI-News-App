@@ -4,13 +4,15 @@ import wordsToNumbers from 'words-to-numbers';
 import alanBtn from '@alan-ai/alan-sdk-web';
 import {NewsCards} from './components';
 import useStyles from './styles';
-const apiKey = "a52cafd26cc41da2c269cb900f4736892e956eca572e1d8b807a3e2338fdd0dc/stage";
+
 const App = () => {
   const [activeArticle, setActiveArticle] = useState(0);
   const [newsArticles, setNewsArticles] = useState([]);
   const classes = useStyles();
   
   useEffect(() => {
+    const apiKey = "a52cafd26cc41da2c269cb900f4736892e956eca572e1d8b807a3e2338fdd0dc/stage";
+   try{ 
     alanBtn({
       key: apiKey,
       onCommand: ({ command, articles, number }) => {
@@ -33,7 +35,10 @@ const App = () => {
         }
       },
     });
-  }, []);
+  } catch (error){
+    console.log(error);
+  }
+}, []);
   return (
     <div>
       <div className={classes.logoContainer}>
